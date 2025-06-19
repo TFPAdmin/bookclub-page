@@ -17,7 +17,7 @@
   },
   "d1_databases": [
     {
-      "binding": "SQL",                        // This must match `c.env.SQL` in your code
+      "binding": "c.env.SQL",                        // This must match `c.env.SQL` in your code
       "database_name": "books",            // Replace with your actual D1 database name
       "database_id": "d4b35876-b1f0-424e-bb67-b0a299237576"    // Replace with your actual D1 database ID from Cloudflare dashboard
     }
