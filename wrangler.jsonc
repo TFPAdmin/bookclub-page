@@ -2,6 +2,7 @@
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */ {
+{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "bookclub-page",
   "main": "api/index.js",
@@ -14,17 +15,13 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
-  // Hyperdrive binding is optional - if not provided, app will use mock data
-  // To enable Hyperdrive, uncomment and configure properly:
-  /*
-    "hyperdrive": [
-      {
-        "binding": "HYPERDRIVE",
-        "id": "YOUR_HYPERDRIVE_ID",
-        "localConnectionString": "postgresql://myuser:mypassword@localhost:5432/mydatabase"
-      }
-    ],
-    */
+  "d1_databases": [
+    {
+      "binding": "SQL",                        // This must match `c.env.SQL` in your code
+      "database_name": "books",            // Replace with your actual D1 database name
+      "database_id": "d4b35876-b1f0-424e-bb67-b0a299237576"    // Replace with your actual D1 database ID from Cloudflare dashboard
+    }
+  ],
   "placement": {
     "mode": "smart"
   },
